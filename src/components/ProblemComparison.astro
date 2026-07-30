@@ -1,0 +1,101 @@
+---
+const badPath = [
+  'Текст в свободной форме',
+  'Канцелярия не видит правовых требований',
+  'Документ уходит в непрофильный отдел',
+  'Исполнитель присылает шаблонную «отписку»',
+];
+
+const goodPath = [
+  'Анализ правового поля и адресата',
+  'Адресация и кодирование по АППК РК',
+  'Фиксация жёсткого статуса в СЭД',
+  'Мотивированный ответ по существу',
+];
+---
+
+<section
+  id="problem"
+  class="bg-white py-16 sm:py-20 lg:py-24"
+  aria-labelledby="problem-heading"
+>
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="mx-auto max-w-3xl text-center">
+      <h2
+        id="problem-heading"
+        class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl"
+      >
+        Почему обычные обращения в eOtinish не работают
+      </h2>
+      <p class="mt-4 text-base text-slate-600 sm:text-lg">
+        eOtinish — это система электронного документооборота (СЭД), а не чат с чиновником.
+      </p>
+    </div>
+
+    <!-- Две цепочки -->
+    <div class="mt-12 grid gap-8 lg:grid-cols-2 lg:gap-10">
+      <!-- Обычное обращение -->
+      <article class="rounded-2xl border border-red-200 bg-red-50/50 p-6 sm:p-8">
+        <h3 class="text-lg font-semibold text-red-800">
+          Обычное обращение
+        </h3>
+        <ol class="mt-6 space-y-4">
+          {
+            badPath.map((step, i) => (
+              <li class="flex gap-3">
+                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-200 text-sm font-bold text-red-800">
+                  {i + 1}
+                </span>
+                <span class="pt-0.5 text-sm leading-relaxed text-slate-700 sm:text-base">
+                  {step}
+                </span>
+              </li>
+            ))
+          }
+        </ol>
+      </article>
+
+      <!-- Системное e-Doc -->
+      <article class="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-6 sm:p-8">
+        <h3 class="text-lg font-semibold text-emerald-800">
+          Системное e-Doc обращение
+        </h3>
+        <ol class="mt-6 space-y-4">
+          {
+            goodPath.map((step, i) => (
+              <li class="flex gap-3">
+                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-200 text-sm font-bold text-emerald-800">
+                  {i + 1}
+                </span>
+                <span class="pt-0.5 text-sm leading-relaxed text-slate-700 sm:text-base">
+                  {step}
+                </span>
+              </li>
+            ))
+          }
+        </ol>
+      </article>
+    </div>
+
+    <!-- Метафора -->
+    <div class="mx-auto mt-10 max-w-3xl rounded-xl border border-slate-200 bg-slate-50 p-5 sm:p-6">
+      <p class="text-sm leading-relaxed text-slate-700 sm:text-base">
+        <span class="font-semibold text-slate-900">Простая аналогия: </span>
+        eOtinish — это как сортировочный центр почты. Если на коробке не указан точный индекс
+        и класс груза — её отправляют на дальний склад.
+      </p>
+    </div>
+
+    <!-- Правовой рычаг -->
+    <div class="mx-auto mt-6 max-w-3xl rounded-xl border border-emerald-100 bg-emerald-50/60 p-5 sm:p-6">
+      <p class="text-sm leading-relaxed text-slate-700 sm:text-base">
+        <span class="font-semibold text-emerald-800">Правовой рычаг: </span>
+        по ст. 91 АППК РК исполнитель в СЭД несёт персональную дисциплинарную
+        и административную ответственность за игнорирование требований.
+        Мы указываем эти нормы в тексте — это лишает чиновника возможности
+        безнаказанно прислать шаблон.
+      </p>
+    </div>
+  </div>
+</section>

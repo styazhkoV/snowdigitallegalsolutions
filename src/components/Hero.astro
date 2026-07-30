@@ -1,0 +1,80 @@
+---
+import { buildWhatsAppLink } from '../lib/messenger';
+
+interface Props {
+  phone?: string;
+  prefilledText?: string;
+}
+
+const {
+  phone = '77055606066',
+  prefilledText = 'Здравствуйте! Хочу оценить свою проблему для подачи грамотного обращения в eOtinish.',
+} = Astro.props;
+
+const whatsappHref = buildWhatsAppLink(phone, prefilledText);
+---
+
+<section
+  id="hero"
+  class="relative overflow-hidden bg-slate-50"
+  aria-labelledby="hero-heading"
+>
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+    <div class="mx-auto max-w-3xl text-center">
+      <!-- H1 -->
+      <h1
+        id="hero-heading"
+        class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
+      >
+        Реальный диалог с государством через eOtinish
+        <span class="block text-emerald-700">без отписок и потери документов</span>
+      </h1>
+
+      <!-- Подзаголовок -->
+      <p class="mt-5 text-base leading-relaxed text-slate-600 sm:text-lg">
+        Инженерный подход к составлению обращений.
+        Соединяем нормы АППК РК и логику работы государственной СЭД.
+      </p>
+
+      <!-- Ключевой оффер -->
+      <p class="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">
+        Переводим вашу проблему на юридический и системный язык чиновников.
+        Документ проектируется как карточка в СЭД — с правильной адресацией,
+        ссылками на статьи закона и жёстким контролем сроков.
+      </p>
+
+      <!-- Primary CTA -->
+      <div class="mt-8 flex flex-col items-center gap-3">
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-event="hero_whatsapp_click"
+          class="inline-flex min-h-[44px] w-full max-w-md items-center justify-center rounded-lg bg-emerald-600 px-6 py-3 text-center text-base font-semibold text-white shadow-sm transition hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 sm:w-auto"
+        >
+          Оценить проблему и зафиксировать обращение в WhatsApp
+        </a>
+
+        <!-- Микро-текст -->
+        <p class="text-xs text-slate-500 sm:text-sm">
+          Бесплатная первичная оценка · Ответ в рабочие часы · ЭЦП передавать не нужно
+        </p>
+      </div>
+
+      <!-- Social proof -->
+      <p class="mt-8 text-sm font-medium text-slate-500">
+        10+ лет в FinTech и банковских системах + практика правильной фиксации обращений в eOtinish
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Лёгкий трекинг клика (без тяжёлого острова)
+  document.querySelectorAll('[data-event="hero_whatsapp_click"]').forEach((el) => {
+    el.addEventListener('click', () => {
+      console.info('[analytics]', { event: 'hero_whatsapp_click' });
+      // Позже: import { track } from '../lib/analytics' через island при необходимости
+    });
+  });
+</script>
