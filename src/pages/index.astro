@@ -1,11 +1,23 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <main>
+    <!-- Сюда пойдут компоненты: Hero, ProblemComparison, Expertise и т.д. -->
+    <section class="mx-auto max-w-6xl px-4 py-20">
+      <h1 class="text-3xl font-bold text-slate-900 sm:text-4xl">
+        Каркас лендинга eOtinish готов
+      </h1>
+      <p class="mt-4 text-slate-600">
+        Tailwind подключён. Можно переходить к Итерации 1–2 (утилиты и Hero).
+      </p>
+      <a
+        href="#"
+        class="mt-8 inline-flex items-center justify-center rounded-lg bg-emerald-600 px-6 py-3 text-white hover:bg-emerald-700"
+      >
+        Тестовая CTA-кнопка
+      </a>
+    </section>
+  </main>
 </Layout>
