@@ -2,26 +2,23 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import ProblemComparison from '../components/ProblemComparison.astro';
+import Expertise from '../components/Expertise.astro';
+import Tariffs from '../components/Tariffs.astro';
+import Guarantees from '../components/Guarantees.astro';
+import Workflow from '../components/Workflow.astro';
+import FaqSection from '../components/FaqSection.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout>
+<Layout title="e-Doc eOtinish — Составление официальных обращений в госорганы РК">
   <main>
     <Hero />
     <ProblemComparison />
-    <!-- Сюда пойдут компоненты: Hero, ProblemComparison, Expertise и т.д. -->
-    <section class="mx-auto max-w-6xl px-4 py-20">
-      <h1 class="text-3xl font-bold text-slate-900 sm:text-4xl">
-        Каркас лендинга eOtinish готов
-      </h1>
-      <p class="mt-4 text-slate-600">
-        Tailwind подключён. Можно переходить к Итерации 1–2 (утилиты и Hero).
-      </p>
-      <a
-        href="#"
-        class="mt-8 inline-flex items-center justify-center rounded-lg bg-emerald-600 px-6 py-3 text-white hover:bg-emerald-700"
-      >
-        Тестовая CTA-кнопка
-      </a>
-    </section>
+    <Expertise />
+    <Tariffs />
+    <Guarantees />
+    <Workflow />
+    <FaqSection />
   </main>
+  <Footer />
 </Layout>
