@@ -2,16 +2,14 @@ name: Deploy site to GitHub Pages
 
 on:
   push:
-    branches: [ main ] # или master, в зависимости от имени вашей ветки
+    branches: [ main ] # Убедитесь, что здесь указана ваша основная ветка (main или master)
   workflow_dispatch:
 
-# Предоставляем права для публикации на GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Отменяем параллельные деплои, если отправлено несколько коммитов подряд
 concurrency:
   group: 'pages'
   cancel-in-progress: true
@@ -26,7 +24,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22' # <-- Установили Node.js 22+ для Astro 7
           cache: 'npm'
 
       - name: Setup Pages
