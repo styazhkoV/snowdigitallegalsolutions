@@ -1,15 +1,12 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
+import react from '@astrojs/react';
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
+  site: 'https://styazhkov.github.io',
+  base: '/snowdigitallegalsolutions',
   vite: {
     plugins: [tailwindcss()],
   },
-  site: 'https://github.com/styazhkoV/Snow-DigitalLegalSolutions.git',
-  base: '/', // если репозиторий = username.github.io
-  // если репозиторий будет snowdigitallegalsolutions → base: '/snowdigitallegalsolutions/'
+  integrations: [react()],
 });
